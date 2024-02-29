@@ -20,6 +20,7 @@ function Home(){
             ?
              <div><h2>No Records</h2></div>
              :
+      return(
                todos.map((todo)=>{
                 console.log(todo.task);
     
@@ -28,7 +29,7 @@ function Home(){
                 <p>Hi </p>
                 <p>{todo.task}</p> 
                 </div>
-        })
+        }))
           
         }
         </div>
