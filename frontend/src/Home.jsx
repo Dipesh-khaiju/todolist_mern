@@ -14,24 +14,18 @@ function Home(){
             <h2> TODOList</h2>
             <Create />      
             <br />
-           {/* { console.log(todos)} */}
+         
         {
             todos.length === 0 
             ?
              <div><h2>No Records</h2></div>
              :
-      return(
-               todos.map((todo)=>{
-                console.log(todo.task);
-    
-                <div className="task">
-
-                <p>Hi </p>
+               todos.map(todo => (
+                <div className="task" key="first">
                 <p>{todo.task}</p> 
                 </div>
-        }))
-          
-        }
+        ))
+         }
         </div>
     )
 }
