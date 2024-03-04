@@ -26,4 +26,25 @@
     height:35px;
     padding:2px 5px 2px 5px;
     margin-top:2px;
+    width:345px
+}
+.checkbox{
+    display:flex;
+    align-items: center;
+    
+} 
+.checkbox  .icon1{
+    margin-right:50px;
+    font-size:50px;
+}
+.task div span{
+    margin:0px 5px 0px 4px;
+
+}
+.task div .icon{
+    cursor:pointer;
+}
+.line_through{
+    text-decoration: line-through;
+    
 }

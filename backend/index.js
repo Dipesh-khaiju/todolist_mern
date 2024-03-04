@@ -1,14 +1,16 @@
 const express = require("express");
 const mongoose = require("mongoose");
 const cors =require("cors");
+const dotenv = require("dotenv");
 const TodoModel = require("./Models/todojsModel.js")
-  
+dotenv.config();  
+
 const app=express();
 app.use(express.json());
 app.use(cors());
 
 //Mongodb connect
-mongoose.connect("mongodb://127.0.0.1:27017/todo_mern")
+mongoose.connect(process.env.MONGO_URI)
 .then(()=>console.log('connected to MongoDB'))
 .catch(err=>console.log(err));
 
@@ -30,7 +32,20 @@ app.post("/add",(req,res)=>{
     }).then(result=>res.json(result))
     .catch(err=>{res.json(err)})
 })
+app.put("/update/:id",(req,res)=>{
+    const {id}=req.params;
+    TodoModel.findByIdAndUpdate({_id:id},{done:true})
+    .then(result=>res.json(result))
+    .catch(err=>{res.json(err)})
+})
 
+app.delete("/delete/:id",(req,res)=>{
+    const{id } =req.params;
+    TodoModel.findByIdAndDelete({_id:id})
+    .then(console.log("Deleted"))
+    .catch(err=>{res.json(err)})
+    
+})
 app.listen(3000,()=>{
 console.log("server is running in backend");
 });
