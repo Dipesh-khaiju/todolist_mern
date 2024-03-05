@@ -4,6 +4,7 @@ const cors =require("cors");
 const dotenv = require("dotenv");
 const TodoModel = require("./Models/todojsModel.js")
 dotenv.config();  
+const port=process.env.PORT || 3000;
 
 const app=express();
 app.use(express.json());
@@ -46,6 +47,6 @@ app.delete("/delete/:id",(req,res)=>{
     .catch(err=>{res.json(err)})
     
 })
-app.listen(3000,()=>{
+app.listen(port,()=>{
 console.log("server is running in backend");
 });
