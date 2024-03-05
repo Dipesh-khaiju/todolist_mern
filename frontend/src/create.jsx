@@ -3,7 +3,7 @@ import axios from "axios";
 function Create(){
     const [task,setTask]=useState([]);
     const handleClick =()=>{
-        axios.post("http://localhost:3000/add",{task:task})
+        axios.post("https://todolist-mern-ff0n.onrender.com/add",{task:task})
         .then(() => {location.reload()})
         .catch(err =>console.log(err))
     }
