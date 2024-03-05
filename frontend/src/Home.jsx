@@ -18,7 +18,11 @@ function Home(){
     }
     const handleDelete=(id)=>{
         axios.delete('http://localhost:3000/delete/'+id)
-        .then(()=>{location.reload()})
+        .then(response=>{
+            if(response.status === 204){
+                window.location.reload();
+            }
+        })
         .catch(err=>console.log(err))
     }
     return(
