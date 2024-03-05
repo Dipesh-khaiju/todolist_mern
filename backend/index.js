@@ -14,7 +14,9 @@ mongoose.connect(process.env.MONGO_URI)
 .then(()=>console.log('connected to MongoDB'))
 .catch(err=>console.log(err));
 
-
+app.get("/",(req,res)=>{
+    res.send("This is the backend of todolist")
+})
 app.get("/get",async (req,res)=>{
    const data = await TodoModel.find()
     .then((result)=>{res.json(result);
